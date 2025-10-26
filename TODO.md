@@ -10,6 +10,9 @@
 - [x] Commit the initial changes with a message
 - [x] Create the GitHub repository 'project_2' under user 'atyakshev0405-star'
 - [x] Push the code to the GitHub repository
+- [x] Update README.md to English
+- [x] Change admin login and password to '123'
+- [x] Commit and push the updates
 
 ## Progress Tracking
 - Started: [Current Date/Time]
