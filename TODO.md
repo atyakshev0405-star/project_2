@@ -6,10 +6,10 @@
 - [x] Authenticate with GitHub using gh auth login
 - [x] Initialize Git repository in the project directory if not already initialized
 - [x] Create a .gitignore file for PHP project (ignore common files like logs, temp, etc.)
-- [ ] Add all project files to Git
-- [ ] Commit the initial changes with a message
-- [ ] Create the GitHub repository 'project_2' under user 'atyakshev0405-star'
-- [ ] Push the code to the GitHub repository
+- [x] Add all project files to Git
+- [x] Commit the initial changes with a message
+- [x] Create the GitHub repository 'project_2' under user 'atyakshev0405-star'
+- [x] Push the code to the GitHub repository
 
 ## Progress Tracking
 - Started: [Current Date/Time]
