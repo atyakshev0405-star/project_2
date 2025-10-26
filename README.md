@@ -1,33 +1,33 @@
-# Система управления графиком столовой
+# Canteen Schedule Management System
 
-Веб-приложение для автоматизации формирования графика посещения столовой студенческими группами.
+A web application for automating the formation of canteen visit schedules for student groups.
 
-## Описание системы
+## System Description
 
-Приложение позволяет администратору управлять группами студентов и автоматически генерировать график посещения столовой с учетом потоков и временных интервалов. Незарегистрированные пользователи могут просматривать график на сегодня и ближайшую неделю.
+The application allows administrators to manage student groups and automatically generate canteen visit schedules taking into account streams and time intervals. Unregistered users can view the schedule for today and the upcoming week.
 
-## Технические требования
+## Technical Requirements
 
-- **PHP**: 7.4 или выше
-- **MySQL**: 5.7 или выше
-- **Web-сервер**: Apache (Open Server)
-- **Браузер**: Современный браузер с поддержкой HTML5
+- **PHP**: 7.4 or higher
+- **MySQL**: 5.7 or higher
+- **Web Server**: Apache (Open Server)
+- **Browser**: Modern browser with HTML5 support
 
-## Установка и настройка
+## Installation and Setup
 
-### 1. Установка базы данных
+### 1. Database Installation
 
-Импортируйте SQL-схему из файла `database.sql`:
+Import the SQL schema from the `database.sql` file:
 
 ```bash
 mysql -u root -p < database.sql
 ```
 
-Или выполните SQL-скрипт через phpMyAdmin.
+Or execute the SQL script via phpMyAdmin.
 
-### 2. Настройка подключения к базе данных
+### 2. Database Connection Configuration
 
-Отредактируйте файл `config/database.php` и укажите параметры подключения:
+Edit the `config/database.php` file and specify the connection parameters:
 
 ```php
 define('DB_HOST', 'localhost');
@@ -36,137 +36,137 @@ define('DB_PASS', '');
 define('DB_NAME', 'canteen_schedule');
 ```
 
-### 3. Развертывание на Open Server
+### 3. Deployment on Open Server
 
-1. Скопируйте папку `php-canteen-app` в директорию `domains` вашего Open Server
-2. Перезапустите Open Server
-3. Откройте браузер и перейдите по адресу: `http://php-canteen-app/public/`
+1. Copy the `php-canteen-app` folder to the `domains` directory of your Open Server
+2. Restart Open Server
+3. Open your browser and navigate to: `http://php-canteen-app/public/`
 
-## Структура проекта
+## Project Structure
 
 ```
 php-canteen-app/
-├── admin/                      # Административная панель
-│   ├── index.php              # Главная страница админ-панели
-│   ├── view_schedule.php      # Просмотр графика (админ)
-│   ├── export_excel.php       # Экспорт графика в Excel
-│   └── logout.php             # Выход из системы
+├── admin/                      # Administrative panel
+│   ├── index.php              # Admin panel main page
+│   ├── view_schedule.php      # View schedule (admin)
+│   ├── export_excel.php       # Export schedule to Excel
+│   └── logout.php             # Logout
 ├── assets/
 │   └── css/
-│       └── style.css          # Основные стили приложения
+│       └── style.css          # Main application styles
 ├── config/
-│   └── database.php           # Настройки подключения к БД
-├── includes/                   # PHP классы и модели
-│   ├── Auth.php               # Класс аутентификации
-│   ├── Group.php              # Модель групп
-│   ├── Schedule.php           # Модель расписания
-│   └── ScheduleGenerator.php  # Генератор графиков
-├── public/                     # Публичные страницы
-│   ├── index.php              # Главная страница (публичный график)
-│   ├── login.php              # Страница входа
-│   └── search.php             # Поиск по группам
-├── database.sql               # SQL-схема базы данных
-└── README.md                  # Документация
+│   └── database.php           # Database connection settings
+├── includes/                   # PHP classes and models
+│   ├── Auth.php               # Authentication class
+│   ├── Group.php              # Group model
+│   ├── Schedule.php           # Schedule model
+│   └── ScheduleGenerator.php  # Schedule generator
+├── public/                     # Public pages
+│   ├── index.php              # Main page (public schedule)
+│   ├── login.php              # Login page
+│   └── search.php             # Search by groups
+├── database.sql               # Database SQL schema
+└── README.md                  # Documentation
 ```
 
-## Учетные данные администратора
+## Administrator Credentials
 
-**Логин:** pav313  
-**Пароль:** sip313
+**Login:** pav313  
+**Password:** sip313
 
-> **Важно:** После первого входа рекомендуется сменить пароль в базе данных.
+> **Important:** After the first login, it is recommended to change the password in the database.
 
-## Функциональные возможности
+## Functional Features
 
-### Для администратора:
+### For Administrators:
 
-1. **Управление группами**
-   - Добавление новых групп
-   - Указание потока (1, 2, 3)
-   - Автоматическая генерация количества студентов (20-30)
-   - Удаление групп
+1. **Group Management**
+   - Adding new groups
+   - Specifying stream (1, 2, 3)
+   - Automatic generation of student count (20-30)
+   - Deleting groups
 
-2. **Генерация графика**
-   - Формирование графика на рабочую неделю (Пн-Пт)
-   - Автоматическая ротация групп по временным интервалам
-   - Распределение групп по потокам с учетом временных ограничений
+2. **Schedule Generation**
+   - Forming schedule for the work week (Mon-Fri)
+   - Automatic group rotation by time intervals
+   - Distribution of groups by streams considering time constraints
 
-3. **Просмотр и экспорт**
-   - Просмотр графика за любой период
-   - Экспорт графика в Excel
+3. **Viewing and Export**
+   - Viewing schedule for any period
+   - Export schedule to Excel
 
-### Для незарегистрированных пользователей:
+### For Unregistered Users:
 
-1. **Просмотр графика**
-   - График на сегодня
-   - График на ближайшую неделю
+1. **Schedule Viewing**
+   - Schedule for today
+   - Schedule for the upcoming week
 
-2. **Поиск**
-   - Поиск времени приема пищи по группе и дате
-   - Формирование отчета по обеду конкретной группы
+2. **Search**
+   - Search for meal time by group and date
+   - Generating report on lunch for a specific group
 
-## Расписание потоков
+## Stream Schedule
 
-- **1 поток групп:** 11:35 - 12:15 (интервал: 5 минут, до 3 групп на слот)
-- **2 поток групп:** 13:00 - 13:30 (интервал: 5 минут, до 3 групп на слот)
-- **3 поток групп:** 14:15 - 14:30 (интервал: 5 минут, до 3 групп на слот)
+- **Stream 1 groups:** 11:35 - 12:15 (interval: 5 minutes, up to 3 groups per slot)
+- **Stream 2 groups:** 13:00 - 13:30 (interval: 5 minutes, up to 3 groups per slot)
+- **Stream 3 groups:** 14:15 - 14:30 (interval: 5 minutes, up to 3 groups per slot)
 
-## Алгоритм ротации
+## Rotation Algorithm
 
-Система автоматически распределяет группы так, чтобы:
-- Каждая группа в течение недели побывала в разных временных интервалах
-- Группы одного потока не пересекались во времени
-- Нагрузка на временные слоты была равномерной
+The system automatically distributes groups so that:
+- Each group during the week visits different time intervals
+- Groups of the same stream do not overlap in time
+- Load on time slots is even
 
-## База данных
+## Database
 
-### Таблицы:
+### Tables:
 
-- **admins** - Учетные записи администраторов
-- **groups** - Студенческие группы
-- **schedules** - Сформированные графики
+- **admins** - Administrator accounts
+- **groups** - Student groups
+- **schedules** - Generated schedules
 
-### Связи:
+### Relationships:
 
 - `schedules.group_id` → `groups.id` (CASCADE DELETE)
 
-## Примеры использования
+## Usage Examples
 
-### Добавление новой группы
+### Adding a New Group
 
-1. Войдите в админ-панель
-2. В форме "Добавить группу" введите название (например: СИП-113/25)
-3. Выберите поток
-4. Нажмите "Добавить группу"
+1. Log into the admin panel
+2. In the "Add Group" form, enter the name (e.g.: SIP-113/25)
+3. Select the stream
+4. Click "Add Group"
 
-### Формирование графика
+### Schedule Generation
 
-1. В форме "Сформировать график" выберите начальную дату (понедельник)
-2. Выберите конечную дату (пятница той же недели)
-3. Нажмите "СФОРМИРОВАТЬ ГРАФИК"
-4. График будет автоматически создан с учетом всех правил ротации
+1. In the "Generate Schedule" form, select the start date (Monday)
+2. Select the end date (Friday of the same week)
+3. Click "GENERATE SCHEDULE"
+4. The schedule will be automatically created considering all rotation rules
 
-### Экспорт в Excel
+### Export to Excel
 
-1. Перейдите в раздел "Просмотреть график (Админ)"
-2. Выберите диапазон дат
-3. Нажмите "Экспорт в Excel"
-4. Файл будет скачан автоматически
+1. Go to the "View Schedule (Admin)" section
+2. Select the date range
+3. Click "Export to Excel"
+4. The file will be downloaded automatically
 
-## Безопасность
+## Security
 
-- Все пароли хешируются с использованием `password_hash()`
-- Защита от SQL-инъекций через PDO prepared statements
-- Проверка прав доступа на всех административных страницах
-- Санитизация пользовательского ввода
+- All passwords are hashed using `password_hash()`
+- Protection against SQL injection via PDO prepared statements
+- Access rights checking on all administrative pages
+- User input sanitization
 
-## Поддержка
+## Support
 
-При возникновении проблем:
-1. Проверьте настройки подключения к БД в `config/database.php`
-2. Убедитесь, что база данных создана и содержит необходимые таблицы
-3. Проверьте логи ошибок PHP
+If problems occur:
+1. Check the database connection settings in `config/database.php`
+2. Make sure the database is created and contains the necessary tables
+3. Check PHP error logs
 
-## Лицензия
+## License
 
-Разработано для учебных целей.
+Developed for educational purposes.
