@@ -36,11 +36,11 @@ CREATE TABLE IF NOT EXISTS `schedules` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- Insert default admin account
--- Username: pav313
--- Password: sip313 (hashed with password_hash)
+-- Username: 123
+-- Password: 123 (hashed with password_hash)
 INSERT INTO `admins` (username, password) VALUES
-('pav313', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
--- Note: Default password is 'sip313' - change after deployment
+('123', '$2y$10$eXNSqEOOsrHoEbDfU0/kZObB./.qdz4DCAiInJ0YlshvvkuwvLDzO');
+-- Note: Default password is '123' - change after deployment
 
 -- Sample groups from the example
 INSERT INTO `groups` (group_name, student_count, stream) VALUES

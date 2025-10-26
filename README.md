@@ -71,8 +71,8 @@ php-canteen-app/
 
 ## Administrator Credentials
 
-**Login:** pav313  
-**Password:** sip313
+**Login:** 123  
+**Password:** 123
 
 > **Important:** After the first login, it is recommended to change the password in the database.
 
